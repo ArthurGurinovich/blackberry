@@ -14,28 +14,16 @@ app.listen(app.get('port'), function(){
 	console.log('Site Blackberry started on http://localhost:' + app.get('port') + '. Click on Crtl+C to Exit');
 });
 
-
-
-// Speakers list 
-var speakers = [
-	"Speaker 1",
-	"Speaker 2",
-	"Speaker 3",
-	"Speaker 4",
-	"Speaker 5"	
-];
-
 // Site pages
-
 app.get('/', function(req, res){
 	res.render('home');
 });
+
+
+var speakers = require('./lib/speakers');
 app.get('/about', function(req, res){
-	var speakerFromList = speakers[Math.floor(Math.random() * speakers.length)];
-
-	res.render('about', {speaker: speakerFromList});
+	res.render('about', {speaker: speakers.getSpeaker()});
 });
-
 
 
 // Errors list
