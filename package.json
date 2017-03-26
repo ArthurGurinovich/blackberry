@@ -1,0 +1,27 @@
+{
+  "name": "blackberry",
+  "version": "1.0.0",
+  "description": "Blackberry web site",
+  "main": "blackberry.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurGurinovich/blackberry.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express"
+  ],
+  "author": "Arthur Gurinovich",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurGurinovich/blackberry/issues"
+  },
+  "homepage": "https://github.com/ArthurGurinovich/blackberry#readme",
+  "dependencies": {
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0"
+  }
+}
