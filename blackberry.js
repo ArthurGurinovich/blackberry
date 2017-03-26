@@ -14,7 +14,17 @@ app.listen(app.get('port'), function(){
 	console.log('Site Blackberry started on http://localhost:' + app.get('port') + '. Click on Crtl+C to Exit');
 });
 
+app.use(function(req, res, next){
+	res.locals.showTests = app.get('env') !== 'production' && 
+	req.query.test === '1';
+	next();
+});
+
+
 // Site pages
+
+
+
 app.get('/', function(req, res){
 	res.render('home');
 });
@@ -22,7 +32,16 @@ app.get('/', function(req, res){
 
 var speakers = require('./lib/speakers');
 app.get('/about', function(req, res){
-	res.render('about', {speaker: speakers.getSpeaker()});
+	res.render('about', {
+		speaker: speakers.getSpeaker(),
+		pageTestScript: 'qa/tests-about.js'
+	});
+});
+app.get('/works/water', function(req, res){
+	res.render('works/water');
+});
+app.get('/works/add-new-work', function(req, res){
+	res.render('works/add-new-work');
 });
 
 
